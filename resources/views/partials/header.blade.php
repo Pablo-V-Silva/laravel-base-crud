@@ -13,9 +13,8 @@ $links = config('headerLinks')
     <a href="{{route('comics')}}"><img src="{{asset('img/dc-logo.png')}}" alt="" height="100px"></a>
     <nav class="w-100">
       <ul class="list-unstyled d-flex justify-content-around">
-        @foreach ($links as $link)
-        <li class="text-uppercase pe-3 {{Route::currentRouteName() == $link ? 'on' : ''}}"><a>{{$link}}</a></li>
-        @endforeach
+        <li class="text-uppercase pe-3"><a href="{{route('comics')}}">Comics</a></li>
+        <li class="text-uppercase pe-3"><a href="{{route('home')}}">HomePage</a></li>
       </ul>
     </nav>
     <form action="/" class="">

@@ -35,6 +35,18 @@ Route::get('comicPage/{id}', function($id) {
 })->name('comicPage'); */
 
 
-Route::get('/', 'ComicController@index')->name('comics');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('comic_page/index', 'ComicController@index')->name('comics');
+
+Route::get('comic_page/upload', 'ComicController@create')->name('comic_page.create');
+
+Route::post('comics', 'ComicController@store')->name('postComic');
 
 Route::get('/comics{comic}', 'ComicController@show')->name('comic');
+
+Route::get('comics/{comic}/edit', 'ComicController@edit')->name('comic.edit');
+
+Route::put('comics/{comic}', 'ComicController@update')->name('comic.update');
+
+Route::delete('comics/{comic}', 'ComicController@destroy')->name('comic.destroy');
