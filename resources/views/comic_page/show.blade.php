@@ -13,7 +13,7 @@
   <div class="container">
     <div class="row infoComic pt-5">
       <div class="col-8">
-        <h3 class="text-uppercase fs-2">{{ $comic->title }}</h3>
+        <h3 class="text-uppercase fs-2">{{ $comic->title }} bubba</h3>
         <div class="row backPrice my-4 mx-1">
           <div class="col-8 d-flex justify-content-between py-4">
             <div class="comicValue">

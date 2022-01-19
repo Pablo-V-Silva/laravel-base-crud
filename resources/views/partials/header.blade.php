@@ -1,3 +1,6 @@
+<?php
+$links = config('headerLinks')
+?>
 <header id="siteHeader ">
   <div class="blueBanner">
     <div class="list-unstyled d-flex justify-content-end align-items-center container text-light py-3">

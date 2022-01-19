@@ -33,18 +33,5 @@
 </div>
 <!-- / Series section -->
 
-<!-- <div class="merch">
-  <div class="container">
-    <div class="row row-cols-5 py-4">
-      @foreach ($merch as $product)
-      <div class="col d-flex justify content around align-items-center">
-        <img src="{{$product['image']}}" alt="" height="80px">
-        <div>{{$product['title']}}</div>
-      </div>
-      @endforeach
-    </div>
-  </div>
-</div>  -->
-<!-- /Merchandising -->
 
 @endsection
