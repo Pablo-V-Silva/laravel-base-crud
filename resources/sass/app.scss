@@ -76,17 +76,23 @@ $comic_info: #F6F6F6;
     min-height: 265px;
     border: 0 !important;
     background-color: $back_products;
+    
+      .thumbCard {
+        z-index: 2;
+      }
 
-    &:hover {
-      transform: scale(1.2);
-      transition: 0.5s;
-      z-index: 100;
-    }
+      &:hover {
+        transform: scale(1.2);
+        transition: 0.5s;
+        z-index: 100;
+      }
 
-    &:hover .menucard {
-      visibility: visible;
-      transition: 0.5s /* from right to left */;
-    }
+      &:hover .menucard {
+        visibility: visible;
+        transition: 0.5s /* from right to left */;
+        left: -70px;
+
+      }
   }
 
   .loadMoreBtn {
@@ -151,9 +157,9 @@ $comic_info: #F6F6F6;
 
 .menucard {
   width: 70px;
-  background-color: rgba(255, 255, 255, 0.815);
+  background-color: rgba(153, 172, 255, 0.915);
   top: 40%;
-  right: 100%;
+  left: 0;
   transform: translate( -0%,-50%);
   visibility: hidden;
 

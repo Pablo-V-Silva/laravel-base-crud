@@ -39,7 +39,7 @@ class ComicController extends Controller
   {
 
     $validateData = $request->validate([
-      'title' => 'required|max:255',
+      'title' => 'required|unique:comics|max:255',
       'description' => 'required',
       'thumb' => 'required',
       'price' => 'required',
@@ -121,6 +121,7 @@ class ComicController extends Controller
    */
   public function destroy(Comic $comic)
   {
-    //
+    $comic->delete();
+    return redirect()->route('comics');
   }
 }
