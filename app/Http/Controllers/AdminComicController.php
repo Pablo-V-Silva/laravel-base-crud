@@ -16,7 +16,7 @@ class ComicController extends Controller
   {
     //
     $comics = Comic::all();
-    return view('comic_page.index', compact('comics'));
+    return view('admin.index', compact('comics'));
   }
 
   /**
@@ -26,7 +26,7 @@ class ComicController extends Controller
    */
   public function create()
   {
-    return view('comic_page.upload');
+    return view('admin.upload');
   }
 
   /**
@@ -37,21 +37,7 @@ class ComicController extends Controller
    */
   public function store(Request $request)
   {
-
-    $validateData = $request->validate([
-      'title' => 'required|unique:comics|max:255',
-      'description' => 'nullable',
-      'thumb' => 'nullable',
-      'price' => 'nullable',
-      'series' => 'nullable',
-      'date' => 'nullable',
-      'type' => 'nullable',
-    ]);
-
-    Comic::create($validateData);
-
-
-    /* $new_comic = new Comic();
+    $new_comic = new Comic();
     $new_comic->title = $request->title;
     $new_comic->description = $request->description;
     $new_comic->thumb = $request->thumb;
@@ -59,7 +45,7 @@ class ComicController extends Controller
     $new_comic->series = $request->series;
     $new_comic->date = $request->date;
     $new_comic->type = $request->type;
-    $new_comic->save(); */
+    $new_comic->save();
 
     return redirect()->route('comics');
   }
@@ -73,7 +59,7 @@ class ComicController extends Controller
   public function show(Comic $comic)
   {
     //
-    return view('comic_page.show', compact('comic'));
+    return view('admin.show', compact('comic'));
   }
 
   /**
@@ -84,7 +70,8 @@ class ComicController extends Controller
    */
   public function edit(Comic $comic)
   {
-    return view('comic_page.edit', compact('comic'));
+    //
+    return view('admin.create');
   }
 
   /**
@@ -96,21 +83,7 @@ class ComicController extends Controller
    */
   public function update(Request $request, Comic $comic)
   {
-
-    $validateData = $request->validate([
-      'title' => 'required|unique:comics|max:255',
-      'description' => 'nullable',
-      'thumb' => 'nullable',
-      'price' => 'nullable',
-      'series' => 'nullable',
-      'date' => 'nullable',
-      'type' => 'nullable',
-
-    ]);
-
-    $comic->update($validateData);
-
-    return redirect()->route('comics')/* ->with('message', 'Hai modificato il Post!') */;
+    //
   }
 
   /**

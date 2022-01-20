@@ -11304,6 +11304,15 @@ textarea.form-control-lg {
   border: 0 !important;
   background-color: #1c1c1c;
 }
+.currentSeries .productsContainer .card:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+  z-index: 100;
+}
+.currentSeries .productsContainer .card:hover .menucard {
+  visibility: visible;
+  transition: 0.5s;
+}
 .currentSeries .productsContainer .loadMoreBtn {
   background-color: #0282F9;
   border: 0;
@@ -11347,6 +11356,30 @@ textarea.form-control-lg {
 
 .specs {
   background-color: #F6F6F6;
+}
+
+.menucard {
+  width: 70px;
+  background-color: rgba(255, 255, 255, 0.815);
+  top: 40%;
+  right: 100%;
+  transform: translate(0%, -50%);
+  visibility: hidden;
+}
+.menucard .editIcon {
+  color: black;
+}
+.menucard .editIcon:hover {
+  color: #64aa67;
+}
+.menucard .deleteIcon {
+  color: black;
+}
+.menucard .deleteIcon:hover {
+  color: rgba(170, 100, 100, 0.891);
+}
+.menucard * {
+  padding: 0.8rem 0.5rem;
 }
 
 /* /MAIN */

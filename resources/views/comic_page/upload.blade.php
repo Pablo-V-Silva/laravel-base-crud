@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-create">
   <div class="container pt-3 pb-4  mt-2 mb-3 bg-primary rounded text-light">
-    <form action="{{route('postComic')}}" method="post">
+    <form action="{{route('comic_page.store')}}" method="post">
       @csrf
       <div class="mb-3">
         <label for="title" class="form-label fs-3">Title</label>
@@ -41,8 +41,9 @@
       </div>
 
 
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="save">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </form>
   </div>
 </div>
