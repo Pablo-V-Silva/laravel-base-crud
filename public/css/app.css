@@ -11307,6 +11307,13 @@ textarea.form-control-lg {
 .currentSeries .productsContainer .card .thumbCard {
   z-index: 2;
 }
+.currentSeries .productsContainer .card .delBtn {
+  background-color: transparent;
+  border: 0;
+}
+.currentSeries .productsContainer .card .delBtn:hover {
+  color: #aa1212;
+}
 .currentSeries .productsContainer .card:hover {
   transform: scale(1.2);
   transition: 0.5s;
