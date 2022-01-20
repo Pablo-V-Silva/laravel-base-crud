@@ -39,13 +39,13 @@ class ComicController extends Controller
   {
 
     $validateData = $request->validate([
-      'title' => 'required|unique:comics|max:255',
-      'description' => 'nullable',
-      'thumb' => 'nullable',
-      'price' => 'nullable',
-      'series' => 'nullable',
-      'date' => 'nullable',
-      'type' => 'nullable',
+      'title' => 'required|max:255',
+      'description' => 'required',
+      'thumb' => 'required',
+      'price' => 'required',
+      'series' => 'required',
+      'date' => 'required',
+      'type' => 'required',
     ]);
 
     Comic::create($validateData);
@@ -98,7 +98,7 @@ class ComicController extends Controller
   {
 
     $validateData = $request->validate([
-      'title' => 'required|unique:comics|max:255',
+      'title' => 'required|max:255',
       'description' => 'nullable',
       'thumb' => 'nullable',
       'price' => 'nullable',
