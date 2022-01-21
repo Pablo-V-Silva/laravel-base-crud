@@ -11299,6 +11299,13 @@ textarea.form-control-lg {
   background-color: #1c1c1c;
   color: white;
 }
+.currentSeries .productsContainer .my_alert {
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  max-width: 260px;
+  margin-left: 0.5rem;
+}
 .currentSeries .productsContainer .card {
   min-height: 265px;
   border: 0 !important;

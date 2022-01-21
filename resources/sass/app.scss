@@ -72,6 +72,14 @@ $comic_info: #F6F6F6;
     background-color: $back_products;
     color: white;
 
+    .my_alert {
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      max-width: 260px;
+      margin-left: 0.5rem;
+    }
+
     .card {
     min-height: 265px;
     border: 0 !important;

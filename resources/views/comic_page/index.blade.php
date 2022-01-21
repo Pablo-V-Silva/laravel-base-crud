@@ -9,7 +9,20 @@
   </div>
 
 
-  <div class="productsContainer">
+  <div class="productsContainer position-relative" id="change_landing">
+
+    @if (session('message'))
+    <div class="alert alert-success my_alert position-absolute">
+      {{session('message')}}
+    </div>
+    @endif
+
+    @if (session('error'))
+    <div class="alert alert-danger my_alert position-absolute">
+      {{session('error')}}
+    </div>
+    @endif
+
     <div class="container ">
       <div class="row row-cols-6 pt-5">
 
@@ -55,6 +68,19 @@
 
 </div>
 <!-- / Series section -->
+
+<script>
+  let alert = document.querySelector('.my_alert');
+  let landing = document.getElementById('change_landing');
+
+  if (alert != null) {
+    setTimeout(() => {
+      alert.style.display = 'none';
+    }, 2 * 1000);
+
+    landing.scrollIntoView();
+  }
+</script>
 
 
 @endsection

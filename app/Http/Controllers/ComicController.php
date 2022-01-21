@@ -48,7 +48,7 @@ class ComicController extends Controller
       'type' => 'required',
     ]);
 
-    Comic::create($validateData);
+    $comic = Comic::create($validateData);
 
 
     /* $new_comic = new Comic();
@@ -61,7 +61,7 @@ class ComicController extends Controller
     $new_comic->type = $request->type;
     $new_comic->save(); */
 
-    return redirect()->route('comics');
+    return redirect()->route('comics')->with('message', 'Hai creato il Comic: ' . $comic->series);
   }
 
   /**
@@ -110,7 +110,7 @@ class ComicController extends Controller
 
     $comic->update($validateData);
 
-    return redirect()->route('comics')/* ->with('message', 'Hai modificato il Post!') */;
+    return redirect()->route('comics')->with('message', 'Hai modificato il Comic: ' . $comic->series);
   }
 
   /**
@@ -121,7 +121,8 @@ class ComicController extends Controller
    */
   public function destroy(Comic $comic)
   {
+    $series = $comic->series;
     $comic->delete();
-    return redirect()->route('comics');
+    return redirect()->route('comics')->with('error', 'Hai eliminato il Comic: ' . $series);
   }
 }
