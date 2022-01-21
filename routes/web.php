@@ -35,6 +35,10 @@ Route::get('comicPage/{id}', function($id) {
 })->name('comicPage'); */
 
 
+/* Dashboard */
+
+Route::view('admin', 'admin.Dashboard');
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('comic_page/index', 'ComicController@index')->name('comics');
 /* Route::get('comic_page/admin/index', 'AdminComicController@index')->name('admin.comics'); */

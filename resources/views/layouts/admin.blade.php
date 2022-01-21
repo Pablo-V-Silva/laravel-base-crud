@@ -23,17 +23,10 @@
 </head>
 
 <body>
-
-  @include('partials.header')
-  <!-- /#siteHeader -->
-
   <main id="siteMain">
     @yield('content')
   </main>
   <!-- /#siteMain -->
-
-  @include('partials.footer')
-  <!-- /siteFooter -->
 </body>
 
 </html>
