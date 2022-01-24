@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminComicController;
 use App\Http\Controllers\ComicController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,13 +36,16 @@ Route::get('comicPage/{id}', function($id) {
 })->name('comicPage'); */
 
 
-/* Dashboard */
+/* Dashboard Admin */
 
-Route::view('admin', 'admin.Dashboard');
+Route::resource('/admin', 'admin\AdminComicController');
 
 Route::get('/', 'HomeController@index')->name('home');
+
+/* Route::get('admin', 'AdminComicController@index')->name('admin.index');
+
+
 Route::get('comic_page/index', 'ComicController@index')->name('comics');
-/* Route::get('comic_page/admin/index', 'AdminComicController@index')->name('admin.comics'); */
 
 Route::get('comic_page/upload', 'ComicController@create')->name('comic_page.create');
 
@@ -53,4 +57,9 @@ Route::get('comics/{comic}/edit', 'ComicController@edit')->name('comic_page.edit
 
 Route::put('comics/{comic}', 'ComicController@update')->name('comic_page.update');
 
-Route::delete('comics/{comic}', 'ComicController@destroy')->name('comic_page.destroy');
+Route::delete('comics/{comic}', 'ComicController@destroy')->name('comic_page.destroy'); */
+
+
+/* Dashboard Utente */
+
+Route::resource('comic_page', 'ComicController');

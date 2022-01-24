@@ -12,7 +12,7 @@
       </ul>
     </div>
     @endif
-    <form action="{{route('comic_page.store')}}" method="post">
+    <form action="{{route('admin.store')}}" method="post">
       @csrf
 
       <div class="mb-3">

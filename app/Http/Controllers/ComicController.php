@@ -26,7 +26,7 @@ class ComicController extends Controller
    */
   public function create()
   {
-    return view('comic_page.upload');
+    //
   }
 
   /**
@@ -37,31 +37,7 @@ class ComicController extends Controller
    */
   public function store(Request $request)
   {
-
-    $validateData = $request->validate([
-      'title' => 'required|unique:comics|max:255',
-      'description' => 'required',
-      'thumb' => 'required',
-      'price' => 'required',
-      'series' => 'required',
-      'date' => 'required',
-      'type' => 'required',
-    ]);
-
-    $comic = Comic::create($validateData);
-
-
-    /* $new_comic = new Comic();
-    $new_comic->title = $request->title;
-    $new_comic->description = $request->description;
-    $new_comic->thumb = $request->thumb;
-    $new_comic->price = $request->price;
-    $new_comic->series = $request->series;
-    $new_comic->date = $request->date;
-    $new_comic->type = $request->type;
-    $new_comic->save(); */
-
-    return redirect()->route('comics')->with('message', 'Hai creato il Comic: ' . $comic->series);
+    //
   }
 
   /**
@@ -73,6 +49,7 @@ class ComicController extends Controller
   public function show(Comic $comic)
   {
     //
+    ddd($comic);
     return view('comic_page.show', compact('comic'));
   }
 
@@ -96,21 +73,7 @@ class ComicController extends Controller
    */
   public function update(Request $request, Comic $comic)
   {
-
-    $validateData = $request->validate([
-      'title' => 'required|max:255',
-      'description' => 'nullable',
-      'thumb' => 'nullable',
-      'price' => 'nullable',
-      'series' => 'nullable',
-      'date' => 'nullable',
-      'type' => 'nullable',
-
-    ]);
-
-    $comic->update($validateData);
-
-    return redirect()->route('comics')->with('message', 'Hai modificato il Comic: ' . $comic->series);
+    //
   }
 
   /**
@@ -121,8 +84,6 @@ class ComicController extends Controller
    */
   public function destroy(Comic $comic)
   {
-    $series = $comic->series;
-    $comic->delete();
-    return redirect()->route('comics')->with('error', 'Hai eliminato il Comic: ' . $series);
+    //
   }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-create">
   <div class="container pt-3 pb-4  mt-2 mb-3 bg-primary rounded text-light">
-    <form action="{{route('comic_page.update', $comic->id)}}" method="post">
+    <form action="{{route('admin.update', $comic->id)}}" method="post">
       @csrf
       @method('PUT')
       <div class="mb-3">

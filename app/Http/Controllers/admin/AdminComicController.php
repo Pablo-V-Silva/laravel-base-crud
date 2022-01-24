@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
-class ComicController extends Controller
+class AdminComicController extends Controller
 {
   /**
    * Display a listing of the resource.
@@ -37,7 +38,21 @@ class ComicController extends Controller
    */
   public function store(Request $request)
   {
-    $new_comic = new Comic();
+
+    $validateData = $request->validate([
+      'title' => 'required|unique:comics|max:255',
+      'description' => 'required',
+      'thumb' => 'required',
+      'price' => 'required',
+      'series' => 'required',
+      'date' => 'required',
+      'type' => 'required',
+    ]);
+
+    $comic = Comic::create($validateData);
+
+
+    /* $new_comic = new Comic();
     $new_comic->title = $request->title;
     $new_comic->description = $request->description;
     $new_comic->thumb = $request->thumb;
@@ -45,9 +60,9 @@ class ComicController extends Controller
     $new_comic->series = $request->series;
     $new_comic->date = $request->date;
     $new_comic->type = $request->type;
-    $new_comic->save();
+    $new_comic->save(); */
 
-    return redirect()->route('comics');
+    return redirect()->route('admin.index')->with('message', 'Hai creato il Comic: ' . $comic->series);
   }
 
   /**
@@ -70,8 +85,7 @@ class ComicController extends Controller
    */
   public function edit(Comic $comic)
   {
-    //
-    return view('admin.create');
+    return view('admin.edit', compact('comic'));
   }
 
   /**
@@ -83,7 +97,21 @@ class ComicController extends Controller
    */
   public function update(Request $request, Comic $comic)
   {
-    //
+
+    $validateData = $request->validate([
+      'title' => 'required|max:255',
+      'description' => 'nullable',
+      'thumb' => 'nullable',
+      'price' => 'nullable',
+      'series' => 'nullable',
+      'date' => 'nullable',
+      'type' => 'nullable',
+
+    ]);
+
+    $comic->update($validateData);
+
+    return redirect()->route('admin.index')->with('message', 'Hai modificato il Comic: ' . $comic->series);
   }
 
   /**
@@ -94,6 +122,8 @@ class ComicController extends Controller
    */
   public function destroy(Comic $comic)
   {
-    //
+    $series = $comic->series;
+    $comic->delete();
+    return redirect()->route('admin.index')->with('error', 'Hai eliminato il Comic: ' . $series);
   }
 }
